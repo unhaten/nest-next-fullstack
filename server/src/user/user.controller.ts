@@ -9,9 +9,9 @@ import { CommentsService } from 'src/comments/comments.service'
 @Controller('user')
 export class UserController {
 
-	@Get()
-	getUserHello() {
-		return 'hello from user'
+	@Get(':id')
+	async getUserProfile(@Param('id') id: number) {
+
 	}
 
 	// -------------------------------------------------------------
