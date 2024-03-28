@@ -9,12 +9,14 @@ import { config } from 'ormconfig'
 
 @Module({
 	imports: [
-		// ConfigModule.forRoot(),
-		UserModule,
-		CommentsModule,
-		TypeOrmModule.forRoot(config)
+		//* gives access to env variables
+		ConfigModule.forRoot(),
+		
+		// UserModule,
+		// CommentsModule,
+		// TypeOrmModule.forRoot(config)
 	],
 	controllers: [AppController],
 	providers: [AppService]
 })
-export class AppModule {}
+export class AppModule { }

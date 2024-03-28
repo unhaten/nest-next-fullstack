@@ -7,22 +7,32 @@ import { Repository } from 'typeorm'
 
 @Injectable()
 export class UserService {
-	// constructor(private prisma: PrismaService) {}
-	constructor(
-		@InjectRepository(User) private readonly userRepo: Repository<User>
-	) {}
 
-	// async create(dto: CreateUserDto) {}
-	async findOne(id: number) {
-		return await this.userRepo.findOne({ where: { id: id } })
-	}
+	
 
-	async create(createUserDto: CreateUserDto) {
-		const user = await this.userRepo.create(createUserDto)
-		return await this.userRepo.save(user)
-	}
 
-	async update(id: number, updateUserDto: UpdateUserDto) {
-		return await this.userRepo.update(id, updateUserDto)
-	}
+
+
+
+
+	// ----------------------------------------------------------------------------------------------------------------
+
+	// // constructor(private prisma: PrismaService) {}
+	// constructor(
+	// 	@InjectRepository(User) private readonly userRepo: Repository<User>
+	// ) {}
+
+	// // async create(dto: CreateUserDto) {}
+	// async findOne(id: number) {
+	// 	return await this.userRepo.findOne({ where: { id: id } })
+	// }
+
+	// async create(createUserDto: CreateUserDto) {
+	// 	const user = await this.userRepo.create(createUserDto)
+	// 	return await this.userRepo.save(user)
+	// }
+
+	// async update(id: number, updateUserDto: UpdateUserDto) {
+	// 	return await this.userRepo.update(id, updateUserDto)
+	// }
 }
