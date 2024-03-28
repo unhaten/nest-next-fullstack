@@ -37,7 +37,7 @@ export class AuthService {
 
         if (user && (await compare(dto.password, user.password))) {
             const { password, ...result } = user
-            return user
+            return result
         }
         throw new UnauthorizedException()
     }

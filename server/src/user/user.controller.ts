@@ -1,17 +1,18 @@
 import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common'
 import {
-	CreateUserDto,
-	// UpdateUserDto 
+	CreateUserDto
+	// UpdateUserDto
 } from './dto/user.dto'
 import { UserService } from './user.service'
 import { CommentsService } from 'src/comments/comments.service'
 
 @Controller('user')
 export class UserController {
+	constructor(private userService: UserService) {}
 
 	@Get(':id')
 	async getUserProfile(@Param('id') id: number) {
-
+		return await this.userService.findById(id)
 	}
 
 	// -------------------------------------------------------------
