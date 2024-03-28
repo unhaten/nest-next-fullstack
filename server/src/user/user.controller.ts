@@ -1,15 +1,25 @@
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common'
+import {
+	Body,
+	Controller,
+	Get,
+	Param,
+	Post,
+	Put,
+	UseGuards
+} from '@nestjs/common'
 import {
 	CreateUserDto
 	// UpdateUserDto
 } from './dto/user.dto'
 import { UserService } from './user.service'
 import { CommentsService } from 'src/comments/comments.service'
+import { JwtGuard } from 'src/auth/guards/jwt.guard'
 
 @Controller('user')
 export class UserController {
 	constructor(private userService: UserService) {}
 
+	@UseGuards(JwtGuard)
 	@Get(':id')
 	async getUserProfile(@Param('id') id: number) {
 		return await this.userService.findById(id)
