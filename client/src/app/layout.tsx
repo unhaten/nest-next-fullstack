@@ -3,6 +3,8 @@ import { Inter as FontSans } from 'next/font/google'
 import './globals.css'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
+import Providers from '@/components/Providers'
+import SignButton from '@/components/SignButton'
 
 // const inter = Inter({ subsets: ["latin"] });
 
@@ -29,13 +31,16 @@ export default function RootLayout({
 					fontSans.variable
 				)}
 			>
-				<header>
-					<nav className='flex gap-2 items-center'>
-						<Link href='/'>Home</Link>
-						<Link href='/dashboard'>Dashboard</Link>
-					</nav>
-				</header>
-				{children}
+				<Providers>
+					<header>
+						<nav className='flex gap-2 items-center'>
+							<Link href='/'>Home</Link>
+							<Link href='/dashboard'>Dashboard</Link>
+							<SignButton />
+						</nav>
+					</header>
+					{children}
+				</Providers>
 			</body>
 		</html>
 	)
